@@ -3,100 +3,544 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Promosi Media Sosial</title>
+  <meta name="theme-color" content="#101312">
+  <meta name="description" content="Maee Garage — bengkel cat motor untuk repaint, custom warna, dan perbaikan bodi.">
+  <title>Maee Garage | Bengkel Cat Motor</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* Reset CSS */
+    :root {
+      color-scheme: dark;
+      --ink: #f4f2eb;
+      --muted: #a5aaa4;
+      --accent: #f28a36;
+      --accent-light: #ffb366;
+      --line: rgba(255, 255, 255, 0.1);
+    }
+
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #0f0500;
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 78% 42%, rgba(242, 138, 54, 0.12), transparent 34rem),
+        #101312;
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page-shell {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .site-header {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      min-height: 88px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #17120d;
+      font-size: 19px;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .brand-caption {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .header-link {
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    .header-link:hover,
+    .header-link:focus-visible {
+      color: var(--accent-light);
+    }
+
+    main {
+      padding: 72px 0 58px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 22px;
+      color: var(--accent-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1 {
+      max-width: 620px;
+      margin: 0;
+      font-family: "Space Grotesk", Inter, "Segoe UI", Arial, sans-serif;
+      font-size: clamp(46px, 6.4vw, 78px);
+      font-weight: 700;
+      letter-spacing: -0.075em;
+      line-height: 0.98;
+    }
+
+    h1 span {
+      color: transparent;
+      background: linear-gradient(105deg, #ffbd75 3%, var(--accent) 52%, #dc6925 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-copy {
+      max-width: 490px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      gap: 10px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
     }
-    .promo-container {
-      max-width: 600px;
-      background: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #17120d;
+    }
+
+    .button-primary:hover {
+      background: var(--accent-light);
+    }
+
+    .button-secondary {
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(242, 138, 54, 0.6);
+    }
+
+    .visual-card {
+      position: relative;
+      display: flex;
+      min-height: 340px;
+      flex-direction: column;
+      justify-content: space-between;
       overflow: hidden;
-      text-align: center;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.07), transparent 48%),
+        linear-gradient(145deg, #282e29, #171b19 68%);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      isolation: isolate;
     }
-    .promo-header {
-      background-color: #0077b6;
-      color: #fff;
-      padding: 20px;
-      font-size: 1.5em;
+
+    .visual-card::before,
+    .visual-card::after {
+      position: absolute;
+      z-index: -1;
+      border: 1px solid rgba(242, 138, 54, 0.2);
+      border-radius: 50%;
+      content: "";
     }
-    .promo-content {
-      padding: 20px;
-      color: #333;
+
+    .visual-card::before {
+      top: 45px;
+      right: -95px;
+      width: 340px;
+      height: 340px;
     }
-    .promo-content h2 {
-      color: #0077b6;
-      font-size: 1.2em;
-      margin-bottom: 10px;
+
+    .visual-card::after {
+      top: 82px;
+      right: -58px;
+      width: 265px;
+      height: 265px;
+      background: radial-gradient(circle at 40% 48%, rgba(242, 138, 54, 0.23), transparent 68%);
     }
-    .promo-content p {
-      margin-bottom: 15px;
+
+    .visual-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
     }
-    .promo-btn {
+
+    .status-dot {
       display: inline-block;
-      padding: 12px 24px;
-      background-color: #00b4d8;
-      color: #fff;
+      width: 7px;
+      height: 7px;
+      margin-right: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(242, 138, 54, 0.8);
+    }
+
+    .bike-illustration {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 0;
+      width: clamp(280px, 42vw, 440px);
+      height: auto;
+      overflow: visible;
+      filter: drop-shadow(0 22px 19px rgba(0, 0, 0, 0.5));
+      transform: translate(-50%, -50%) perspective(800px) rotateY(-18deg) rotateX(9deg) rotate(-7deg);
+      transform-style: preserve-3d;
+      animation: bike-float 5s ease-in-out infinite;
+    }
+
+    @keyframes bike-float {
+      0%, 100% {
+        transform: translate(-50%, -50%) perspective(800px) rotateY(-18deg) rotateX(9deg) rotate(-7deg) translateY(0);
+      }
+      50% {
+        transform: translate(-50%, -50%) perspective(800px) rotateY(-14deg) rotateX(12deg) rotate(-5deg) translateY(-8px);
+      }
+    }
+
+    .visual-caption {
+      position: relative;
+      z-index: 1;
+      max-width: 230px;
+      margin-top: auto;
+    }
+
+    .visual-caption strong {
+      display: block;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .visual-caption span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 70px;
+    }
+
+    .service-card {
+      min-height: 150px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: rgba(25, 30, 27, 0.8);
+    }
+
+    .service-icon {
+      color: var(--accent);
+      font-size: 17px;
+    }
+
+    .service-card h2 {
+      margin: 17px 0 7px;
+      font-size: 15px;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0 28px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .social-links a {
+      color: var(--muted);
+      font-size: 16px;
       text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s;
+      transition: color 180ms ease;
     }
-    .promo-btn:hover {
-      background-color: #0077b6;
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      color: var(--accent-light);
     }
-    .social-icons {
-      margin-top: 15px;
+
+    @media (max-width: 760px) {
+      .page-shell {
+        width: min(100% - 36px, 560px);
+      }
+
+      main {
+        padding: 52px 0 42px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .visual-card {
+        min-height: 290px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 42px;
+      }
+
+      .service-card {
+        min-height: unset;
+      }
+
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
-    .social-icons a {
-      margin: 0 10px;
-      color: #0077b6;
-      font-size: 2em;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #00b4d8;
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .bike-illustration {
+        animation: none;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Maee Garage, beranda">
+        <span class="brand-mark" aria-hidden="true"><i class="fas fa-spray-can"></i></span>
+        <span>
+          <span class="brand-name">MAEE GARAGE</span>
+          <span class="brand-caption">Motorcycle paint studio</span>
+        </span>
+      </a>
+      <a class="header-link" href="#layanan">Layanan kami <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+    </header>
 
-  <div class="promo-container">
-    <div class="promo-header">
-      <h1>SELAMAT DATANG DI Maee_Garage🛠️</h1>
-    </div>
-    <div class="promo-content">
-      <h2></h2>
-      <p>TETAP BERKARYA MESKIPUN TIDAK MENJADI KAYA!</p>
-      <p>JANGAN LUPA KLIK DI BAWAH INI BIAR TAHU SOSMET KAMI!</p>
-      <p>⇩</p>
-      <div class="social-icons">
-        <a href="https://facebook.com/maeegarage" target="_blank">
-            <i class="fa-brands fa-facebook"></i>
-        </a>
-        <a href="https://www.tiktok.com/@maeegarage" target="_blank">
-            <i class="fab fa-tiktok"></i>
-        </a>
-        <a href="https://wa.me/+6281904942011" target="_blank">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </div>
-    </div>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="eyebrow">Bengkel cat motor</p>
+          <h1 id="hero-title">Warna baru.<br><span>Karakter baru.</span></h1>
+          <p class="hero-copy">
+            Bikin tampilan motor makin berkarakter dengan hasil cat yang rapi dan pilihan warna yang sesuai gaya kamu.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://wa.me/6281904942011?text=Halo%20Maee%20Garage%2C%20saya%20ingin%20konsultasi%20cat%20motor." target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i> Konsultasi via WhatsApp
+            </a>
+            <a class="button button-secondary" href="#layanan">Jelajahi layanan <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="visual-card" aria-label="Ilustrasi motor dan layanan cat custom Maee Garage">
+          <div class="visual-topline">
+            <span><i class="status-dot" aria-hidden="true"></i>Detail is everything</span>
+            <span>MG / 01</span>
+          </div>
+          <svg class="bike-illustration" viewBox="0 0 560 340" aria-hidden="true">
+            <defs>
+              <linearGradient id="body-orange" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffc078" />
+                <stop offset="0.38" stop-color="#f28a36" />
+                <stop offset="1" stop-color="#b94e18" />
+              </linearGradient>
+              <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f5f0e7" />
+                <stop offset="0.45" stop-color="#8e9992" />
+                <stop offset="1" stop-color="#343c37" />
+              </linearGradient>
+              <linearGradient id="tire" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#48504b" />
+                <stop offset="1" stop-color="#111513" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="278" cy="298" rx="218" ry="16" fill="#080a09" opacity="0.55" />
+            <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="133" cy="233" r="65" stroke="#111513" stroke-width="18" />
+              <circle cx="133" cy="233" r="56" stroke="url(#tire)" stroke-width="7" />
+              <circle cx="133" cy="233" r="43" stroke="url(#metal)" stroke-width="4" />
+              <circle cx="133" cy="233" r="12" fill="#333b36" stroke="#f28a36" stroke-width="4" />
+              <circle cx="414" cy="233" r="65" stroke="#111513" stroke-width="18" />
+              <circle cx="414" cy="233" r="56" stroke="url(#tire)" stroke-width="7" />
+              <circle cx="414" cy="233" r="43" stroke="url(#metal)" stroke-width="4" />
+              <circle cx="414" cy="233" r="12" fill="#333b36" stroke="#f28a36" stroke-width="4" />
+              <g stroke="url(#metal)" stroke-width="3" opacity="0.8">
+                <path d="M133 190v86M90 233h86M103 203l60 60M163 203l-60 60" />
+                <path d="M414 190v86M371 233h86M384 203l60 60M444 203l-60 60" />
+              </g>
+              <path d="M133 233l98-45 65 45-64 1-51-49" stroke="#b5bdb6" stroke-width="8" />
+              <path d="M231 188l67 45 62-88 54 88" stroke="url(#metal)" stroke-width="9" />
+              <path d="M231 188l-8 45M264 188l34 45M344 145l31 6" stroke="#e2e4dc" stroke-width="5" />
+              <path d="M267 222l17-47 31-8 17 45-21 31h-42z" fill="#303833" stroke="#aeb6ae" stroke-width="4" />
+              <path d="M286 184l25-5 10 27-17 20-22-10z" fill="#171c19" stroke="#f28a36" stroke-width="3" />
+              <path d="M310 174l-10 39M327 184l-18 30M279 211l48 1" stroke="#8a958d" stroke-width="3" />
+              <path d="M225 142c20-25 51-35 91-31l39 22-19 37-68 12-43-15z" fill="url(#body-orange)" stroke="#ffbd75" stroke-width="3" />
+              <path d="M338 133l29 8-19 30-29 6 10-25z" fill="#bd571e" stroke="#f8a65d" stroke-width="3" />
+              <path d="M220 145l-44-7-26 17 56 9 24-8z" fill="url(#body-orange)" stroke="#ffbd75" stroke-width="3" />
+              <path d="M178 137l-31 3-18 11 33 3z" fill="#f7a45d" />
+              <path d="M214 143l-11-12-37-3 18 14z" fill="#171b19" stroke="#68716b" stroke-width="3" />
+              <path d="M200 128l-20-15-29 1 18 15z" fill="#252c28" stroke="#9da59e" stroke-width="3" />
+              <path d="M359 142l17-26 17 4-16 31" fill="none" stroke="url(#metal)" stroke-width="6" />
+              <path d="M375 116l25-2 18 7-2 5-30-2" fill="none" stroke="#d9ded7" stroke-width="5" />
+              <path d="M373 146l31 7 12 14-23-4z" fill="#f4e4c9" stroke="#fff2db" stroke-width="3" />
+              <path d="M344 159l-5 20" stroke="#f28a36" stroke-width="4" />
+              <path d="M209 176l-31 40" stroke="#f28a36" stroke-width="4" />
+              <path d="M177 216h-25" stroke="#d8ded7" stroke-width="4" />
+              <path d="M400 178l24 55" stroke="#d4d9d2" stroke-width="3" />
+              <path d="M231 184l-22-38M210 146l-16-4" stroke="#cbd1ca" stroke-width="4" />
+            </g>
+            <path d="M244 137c20-18 44-24 71-22" fill="none" stroke="#ffe0b9" stroke-linecap="round" stroke-width="4" opacity="0.8" />
+            <path d="M350 151l-9 15" fill="none" stroke="#ffcb8b" stroke-linecap="round" stroke-width="3" />
+            <circle cx="395" cy="145" r="3" fill="#f28a36" />
+          </svg>
+          <div class="visual-caption">
+            <strong>Built to stand out.</strong>
+            <span>Sentuhan warna yang bikin beda di jalan.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="layanan" aria-label="Layanan Maee Garage">
+        <article class="service-card">
+          <i class="fas fa-paint-roller service-icon" aria-hidden="true"></i>
+          <h2>Cat ulang bodi</h2>
+          <p>Segarkan tampilan motor dengan warna pilihan dan pengerjaan yang teliti.</p>
+        </article>
+        <article class="service-card">
+          <i class="fas fa-palette service-icon" aria-hidden="true"></i>
+          <h2>Warna custom</h2>
+          <p>Racik tampilan sesuai karakter dan referensi yang kamu inginkan.</p>
+        </article>
+        <article class="service-card">
+          <i class="fas fa-screwdriver-wrench service-icon" aria-hidden="true"></i>
+          <h2>Perbaikan bodi</h2>
+          <p>Rapikan bagian bodi sebelum finishing agar hasil terlihat maksimal.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Maee Garage. Dibuat untuk motor yang punya karakter.</span>
+      <nav class="social-links" aria-label="Media sosial Maee Garage">
+        <a href="https://facebook.com/maeegarage" target="_blank" rel="noopener noreferrer" aria-label="Facebook Maee Garage"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://www.tiktok.com/@maeegarage" target="_blank" rel="noopener noreferrer" aria-label="TikTok Maee Garage"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+        <a href="https://wa.me/6281904942011" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Maee Garage"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+      </nav>
+    </footer>
   </div>
-
 </body>
 </html>
